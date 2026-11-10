@@ -3,6 +3,7 @@
 A high-craft, dark-themed developer portfolio built with **Vue 3**, **Vite**, and custom hardware-accelerated directives (`v-reveal` & `v-spotlight`).
 
 ## Highlights
+
 - **Obsidian & Emerald-Cyan Dark Theme** (`#090A0F` primary canvas, `#10B981` Vue Emerald, `#38BDF8` Electric Cyan)
 - **Interactive Engineering Console** in the Hero section
 - **Filterable Career Trajectory** covering NCGR, Link Development, Silky Systems, and Huawei Technologies
@@ -22,4 +23,3 @@ npm run dev
 npm run build
 npm run preview
 ```
-
