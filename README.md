@@ -1,4 +1,4 @@
-# Osama Noshy Maher — Senior Frontend Developer Portfolio
+# Osama Noshy Ahmed — Senior Frontend Developer Portfolio
 
 A high-craft, dark-themed developer portfolio built with **Vue 3**, **Vite**, and custom hardware-accelerated directives (`v-reveal` & `v-spotlight`).
 
