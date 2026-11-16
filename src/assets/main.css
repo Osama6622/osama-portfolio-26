@@ -43,6 +43,8 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color-scheme: dark;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -50,6 +52,8 @@ body {
   color: var(--text-primary);
   line-height: 1.65;
   overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
   selection-background-color: rgba(16, 185, 129, 0.25);
 }
 
@@ -148,6 +152,8 @@ button {
 /* Spotlight Glass Card */
 .spotlight-card {
   position: relative;
+  min-width: 0;
+  max-width: 100%;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 18px;
@@ -327,11 +333,27 @@ button {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1.15rem;
+  }
   .section {
-    padding: 4.5rem 0;
+    padding: 4.25rem 0;
   }
   .section-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.25rem;
+  }
+  .section-title {
+    font-size: clamp(1.65rem, 6.5vw, 2.2rem);
+    word-break: break-word;
+  }
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    padding: 0 1rem;
   }
 }
 

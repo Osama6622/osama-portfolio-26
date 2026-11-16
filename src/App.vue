@@ -31,6 +31,9 @@ import ContactSection from '@/components/ContactSection.vue'
 <style scoped>
 .portfolio-shell {
   min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
   background-color: var(--bg-primary);
   color: var(--text-primary);
 }

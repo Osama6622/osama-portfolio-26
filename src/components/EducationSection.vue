@@ -81,7 +81,7 @@ import { educationData, additionalInfo } from '@/data/cvData'
 <style scoped>
 .edu-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.35rem;
   margin-bottom: 1.5rem;
 }
@@ -212,7 +212,7 @@ import { educationData, additionalInfo } from '@/data/cvData'
 
 .info-items-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
@@ -235,16 +235,23 @@ import { educationData, additionalInfo } from '@/data/cvData'
 
 @media (max-width: 900px) {
   .edu-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .info-items-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 520px) {
+  .edu-card,
+  .info-strip {
+    padding: 1.35rem 1.15rem;
+  }
+  .edu-degree {
+    font-size: 1.15rem;
+  }
   .info-items-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 </style>

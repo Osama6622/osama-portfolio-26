@@ -240,10 +240,16 @@ const scrollToTop = () => {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: 2.5rem;
   align-items: start;
   margin-bottom: 5rem;
+}
+
+.contact-info,
+.contact-form-wrap {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .channel-cards {
@@ -257,7 +263,7 @@ const scrollToTop = () => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.75rem;
   padding: 1.05rem 1.25rem;
 }
 
@@ -265,6 +271,12 @@ const scrollToTop = () => {
   display: flex;
   align-items: center;
   gap: 0.9rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.channel-left > div:last-child {
+  min-width: 0;
 }
 
 .channel-icon {
@@ -303,9 +315,12 @@ const scrollToTop = () => {
 }
 
 .channel-value {
+  display: block;
   font-size: 0.96rem;
   font-weight: 700;
   color: var(--text-primary);
+  word-break: break-word;
+  overflow-wrap: anywhere;
   transition: color 0.2s ease;
 }
 
@@ -324,6 +339,7 @@ a.channel-value:hover {
   color: var(--text-secondary);
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.09);
+  flex-shrink: 0;
   transition: all 0.2s ease;
 }
 
@@ -395,7 +411,7 @@ a.channel-value:hover {
 
 .form-row-2 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 0.9rem;
 }
 
@@ -494,13 +510,39 @@ a.channel-value:hover {
 
 @media (max-width: 960px) {
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: 3.5rem;
   }
 }
 
 @media (max-width: 560px) {
+  .channel-card {
+    padding: 0.9rem 1rem;
+    gap: 0.6rem;
+  }
+  .channel-left {
+    gap: 0.7rem;
+  }
+  .channel-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .channel-value {
+    font-size: 0.84rem;
+  }
+  .copy-chip {
+    padding: 0.32rem 0.6rem;
+    font-size: 0.68rem;
+  }
+  .social-pill {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .contact-form {
+    padding: 1.35rem 1.15rem;
+  }
   .form-row-2 {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 </style>

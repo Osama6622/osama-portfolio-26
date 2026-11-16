@@ -227,7 +227,7 @@ const filteredExperiences = () => {
 
 .timeline-row {
   display: grid;
-  grid-template-columns: var(--axis-width) 1fr;
+  grid-template-columns: var(--axis-width) minmax(0, 1fr);
   align-items: center;
 }
 
@@ -474,14 +474,47 @@ const filteredExperiences = () => {
 }
 
 @media (max-width: 768px) {
+  .experience-header-row {
+    margin-bottom: 2.25rem;
+  }
+  .company-filter {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+  .company-filter::-webkit-scrollbar {
+    display: none;
+  }
+  .filter-chip {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
   .timeline-wrapper {
-    --axis-width: 32px;
+    --axis-width: 26px;
+  }
+  .timeline-node {
+    width: 16px;
+    height: 16px;
+  }
+  .timeline-node-inner {
+    width: 5px;
+    height: 5px;
   }
   .timeline-card {
-    padding: 1.4rem 1.3rem;
+    padding: 1.25rem 1.1rem;
+  }
+  .job-role {
+    font-size: 1.18rem;
+  }
+  .job-company-row {
+    font-size: 0.9rem;
+    align-items: flex-start;
   }
   .job-meta {
     align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 </style>

@@ -220,7 +220,7 @@ const sampleRows = [
 <style scoped>
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.35rem;
   margin-bottom: 2rem;
 }
@@ -353,9 +353,15 @@ const sampleRows = [
 
 .playground-grid {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: 1.75rem;
   align-items: start;
+}
+
+.playground-controls,
+.playground-preview {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .playground-controls {
@@ -366,7 +372,7 @@ const sampleRows = [
 
 .field-row-2 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 0.85rem;
 }
 
@@ -543,14 +549,25 @@ const sampleRows = [
 @media (max-width: 960px) {
   .skills-grid,
   .playground-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
 @media (max-width: 560px) {
+  .skill-card,
+  .playground-card {
+    padding: 1.35rem 1.15rem;
+  }
+  .playground-mono {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.3rem;
+    font-size: 0.72rem;
+    word-break: break-word;
+  }
   .skill-items,
   .field-row-2 {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 </style>

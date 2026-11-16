@@ -315,21 +315,29 @@ const copyEmail = async () => {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   gap: 3rem;
   align-items: center;
+}
+
+.hero-content,
+.hero-visual {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .status-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.42rem 0.95rem;
+  flex-wrap: wrap;
+  max-width: 100%;
+  gap: 0.5rem;
+  padding: 0.42rem 0.9rem;
   border-radius: 999px;
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.25);
   font-family: var(--font-mono);
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: #d1fae5;
   margin-bottom: 1.5rem;
@@ -341,10 +349,12 @@ const copyEmail = async () => {
   border-radius: 50%;
   background: var(--accent-emerald);
   box-shadow: 0 0 12px var(--accent-emerald);
+  flex-shrink: 0;
 }
 
 .status-icon {
   color: var(--accent-emerald);
+  flex-shrink: 0;
 }
 
 .hero-title {
@@ -437,7 +447,13 @@ const copyEmail = async () => {
   padding: 0.85rem 1.15rem;
   background: rgba(255, 255, 255, 0.025);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  max-width: 100%;
   overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.console-header::-webkit-scrollbar {
+  display: none;
 }
 
 .window-dots {
@@ -469,6 +485,7 @@ const copyEmail = async () => {
   display: flex;
   align-items: center;
   gap: 0.35rem;
+  min-width: 0;
 }
 
 .console-tab {
@@ -483,6 +500,7 @@ const copyEmail = async () => {
   background: transparent;
   border: 1px solid transparent;
   white-space: nowrap;
+  flex-shrink: 0;
   transition: all 0.22s ease;
 }
 
@@ -503,27 +521,34 @@ const copyEmail = async () => {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 0;
+  overflow-x: auto;
 }
 
 .code-block {
   font-family: var(--font-mono);
   font-size: 0.81rem;
   line-height: 1.85;
+  min-width: 0;
 }
 
 .code-line {
-  display: flex;
-  align-items: baseline;
-  white-space: pre-wrap;
+  position: relative;
+  display: block;
+  padding-left: 2rem;
+  white-space: normal;
   word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .ln {
+  position: absolute;
+  left: 0;
+  top: 0;
   color: #4b5563;
   user-select: none;
-  margin-right: 1rem;
   font-size: 0.73rem;
-  min-width: 18px;
+  width: 1.5rem;
 }
 
 .kw {
@@ -637,8 +662,10 @@ const copyEmail = async () => {
 
 .console-footer {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
   padding: 0.65rem 1.15rem;
   background: rgba(255, 255, 255, 0.02);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -658,7 +685,7 @@ const copyEmail = async () => {
 .metrics-ribbon {
   margin-top: 4rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.15rem;
 }
 
@@ -710,20 +737,59 @@ const copyEmail = async () => {
 
 @media (max-width: 1024px) {
   .hero-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2.5rem;
   }
   .metrics-ribbon {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 560px) {
   .hero-section {
-    padding-top: 7.5rem;
+    padding: 6.75rem 0 3.75rem;
+  }
+  .status-pill {
+    font-size: 0.68rem;
+    padding: 0.36rem 0.75rem;
+    border-radius: 14px;
+  }
+  .hero-title {
+    font-size: clamp(1.85rem, 8vw, 2.35rem);
+    word-break: break-word;
+  }
+  .hero-title-sub {
+    font-size: clamp(1.25rem, 5.5vw, 1.55rem);
+  }
+  .hero-description {
+    font-size: 0.94rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-actions > a,
+  .hero-actions > button {
+    width: 100%;
+    justify-content: center;
+  }
+  .console-header {
+    padding: 0.75rem 0.85rem;
+  }
+  .console-body {
+    padding: 1.05rem 0.95rem;
+    min-height: auto;
+  }
+  .code-block {
+    font-size: 0.74rem;
+  }
+  .portal-item {
+    flex-direction: column;
+    gap: 0.5rem;
   }
   .metrics-ribbon {
-    grid-template-columns: 1fr;
+    margin-top: 2.5rem;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 </style>

@@ -263,12 +263,13 @@ const closeModal = () => {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 1.35rem;
 }
 
 .project-card {
   grid-column: span 6;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -614,6 +615,50 @@ const closeModal = () => {
   .project-card,
   .project-card.featured-span {
     grid-column: span 12;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-header-row {
+    margin-bottom: 2rem;
+  }
+  .category-tabs {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+  .category-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .cat-tab {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .project-card-body {
+    padding: 1.35rem 1.2rem 1rem;
+  }
+  .project-card-footer {
+    padding: 1rem 1.2rem 1.25rem;
+  }
+  .project-meta-top {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .project-title {
+    font-size: 1.18rem;
+  }
+  .modal-backdrop {
+    padding: 0.85rem;
+  }
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+  .modal-title {
+    font-size: 1.25rem;
   }
 }
 </style>

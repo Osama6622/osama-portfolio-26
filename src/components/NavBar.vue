@@ -407,5 +407,39 @@ onUnmounted(() => {
     display: inline-flex;
   }
 }
+
+@media (max-width: 480px) {
+  .navbar-inner {
+    gap: 0.5rem;
+  }
+  .brand {
+    gap: 0.55rem;
+    min-width: 0;
+  }
+  .brand-monogram {
+    width: 34px;
+    height: 34px;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+  .brand-name {
+    font-size: 0.9rem;
+  }
+  .brand-role {
+    font-size: 0.62rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .nav-actions {
+    gap: 0.4rem;
+    flex-shrink: 0;
+  }
+  .icon-btn,
+  .mobile-toggle {
+    width: 34px;
+    height: 34px;
+  }
+}
 </style>
 
