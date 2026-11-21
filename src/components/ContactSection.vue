@@ -217,10 +217,10 @@ const scrollToTop = () => {
       <!-- Footer Bottom Bar -->
       <footer class="footer-bar">
         <div class="footer-left">
-          <span class="footer-brand">Osama Noshy Ahmed</span>
-          <span class="footer-sep">·</span>
+          <!-- <span class="footer-brand">Osama Noshy Ahmed</span> -->
+          <!-- <span class="footer-sep">·</span> -->
           <span class="footer-copy">
-            Senior Frontend Developer · Built with Vue 3 &amp; Vite
+            Senior Frontend Developer &copy; Built By Osama Noshy
           </span>
         </div>
 
